@@ -25,6 +25,9 @@ class Question(models.Model):
     text = models.TextField(blank=False, null=False)
     answer_type = models.CharField(max_length=100, blank=True, null=False, default='text', choices=ANSWER_TYPES)
 
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
 
 class Choice(models.Model):
     question = models.ForeignKey(to='Question', blank=False, null=False, on_delete=models.CASCADE)
@@ -35,6 +38,9 @@ class Choice(models.Model):
 class PollResult(models.Model):
     poll = models.ForeignKey(to='Poll', blank=False, null=True, on_delete=models.SET_NULL)
     user_uid = models.IntegerField(blank=False, null=False)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
 
 class Answer(models.Model):
