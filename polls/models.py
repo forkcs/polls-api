@@ -20,7 +20,7 @@ ANSWER_TYPES = (
 
 
 class Question(models.Model):
-    poll = models.ForeignKey(to='Poll', blank=False, null=False, on_delete=models.CASCADE)
+    poll = models.ForeignKey(to='Poll', blank=False, null=False, on_delete=models.CASCADE, related_name='questions')
 
     text = models.TextField(blank=False, null=False)
     answer_type = models.CharField(max_length=100, blank=True, null=False, default='text', choices=ANSWER_TYPES)
