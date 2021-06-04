@@ -5,10 +5,9 @@ class Poll(models.Model):
     title = models.CharField(max_length=1000, blank=False, null=False)
     description = models.TextField(blank=True, null=True)
 
-    start_date = models.DateTimeField(blank=True, null=True)
+    start_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateTimeField(blank=True, null=True)
 
-    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
 
