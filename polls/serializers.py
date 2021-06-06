@@ -27,9 +27,9 @@ class PollListItemSerializer(ModelSerializer):
 
 
 class PollSerializer(ModelSerializer):
-    questions = QuestionSerializer(many=True, read_only=False)
+    questions = QuestionSerializer(many=True, read_only=True)
 
     class Meta:
         model = Poll
         fields = ('id', 'title', 'description', 'start_date', 'end_date', 'questions')
-        read_only_fields = ('start_date', 'id')
+        read_only_fields = ('start_date', 'id', 'questions')
