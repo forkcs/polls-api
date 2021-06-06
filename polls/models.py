@@ -29,7 +29,8 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
-    question = models.ForeignKey(to='Question', blank=False, null=False, on_delete=models.CASCADE)
+    question = models.ForeignKey(to='Question', blank=False, null=False,
+                                 on_delete=models.CASCADE, related_name='choices')
 
     text = models.CharField(max_length=1000, blank=False, null=False)
 
